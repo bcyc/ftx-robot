@@ -1,0 +1,3 @@
+API = 'Qy_KzcEVjwXY5T2Cv2BMdKX8zU2Q4LcwldMM97Lb'
+SECRET = 'sI5zBUcRYwfq4hC88w_ChaBnii9xasY18_saRzJm'
+SUBACCOUNT = None
