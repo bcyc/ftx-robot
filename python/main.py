@@ -9,7 +9,8 @@ def main() -> None:
     client = FtxClient(api_key=API,
                        api_secret=SECRET,
                        subaccount_name=SUBACCOUNT)
-    schedule.every().hour.at(":50").do(auto_lending, client)
+    auto_lending(client)
+    schedule.every().hour.at(":58").do(auto_lending, client)
     while True:
         schedule.run_pending()
         time.sleep(1)

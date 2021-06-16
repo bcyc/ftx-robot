@@ -6,7 +6,9 @@ LEND_COINS = ['ETH', 'USD']
 
 
 def auto_lending(client: FtxClient) -> None:
+    print('[auto_lending] DEBUG: {}'.format(datetime.datetime.now()))
     for coin in LEND_COINS:
+        print('[auto_lending] DEBUG: start lending {}'.format(coin))
         lend_coin(client, coin)
 
 
