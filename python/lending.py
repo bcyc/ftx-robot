@@ -1,5 +1,5 @@
 from ftx.client import FtxClient
-
+import datetime
 
 LEND_COINS = ['ETH', 'USD']
 
@@ -10,7 +10,7 @@ def auto_lending(client: FtxClient) -> None:
 
 
 def lend_coin(client: FtxClient, coin: str) -> None:
-    print('[lend_coin] DEBUG:')
+    print('[lend_coin] DEBUG: {}'.format(datetime.datetime.now()))
     balance_coin = client.get_balance_coin(coin)
     if balance_coin is None:
         return
