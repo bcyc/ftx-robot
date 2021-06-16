@@ -14,7 +14,7 @@ def lend_coin(client: FtxClient, coin: str) -> None:
     balance_coin = client.get_balance_coin(coin)
     if balance_coin is None:
         return
-    available_balance = balance_coin['free']
+    available_balance = format(balance_coin['total'], '.6f')
     lend_rate = client.get_margin_lending_rate_coin(coin)
     print(lend_rate)
 
