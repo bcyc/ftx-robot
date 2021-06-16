@@ -70,6 +70,16 @@ class FtxClient:
             return None
         return balance_coin[0]
 
+    def get_margin_lending_info(self) -> List[dict]:
+        return self._get('spot_margin/lending_info')
+
+    def get_margin_lending_info_coin(self, coin: str) -> dict:
+        lending_info_coin = [lending_info for lending_info in self.get_margin_lending_info()
+                        if lending_info['coin'] == coin]
+        if lending_info_coin == []:
+            return None
+        return lending_info_coin[0]
+
     def get_margin_lending_rate(self) -> List[dict]:
         return self._get('spot_margin/lending_rates')
 
