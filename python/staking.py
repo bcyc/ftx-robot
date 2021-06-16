@@ -1,11 +1,11 @@
 from ftx.client import FtxClient
 
 
-SRM_COINS = ['SOL']
+STAKE_COINS = ['SOL']
 
 
 def auto_staking(client: FtxClient) -> None:
-    for coin in SRM_COINS:
+    for coin in STAKE_COINS:
         stake_coin(client, coin)
 
 

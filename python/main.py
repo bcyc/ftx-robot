@@ -1,6 +1,7 @@
 import threading
 from ftx.client import FtxClient
-from staking import auto_staking
+# from staking import auto_staking
+from lending import auto_lending
 from settings import API, SECRET, SUBACCOUNT
 
 
@@ -9,7 +10,8 @@ def main() -> None:
     client = FtxClient(api_key=API,
                        api_secret=SECRET,
                        subaccount_name=SUBACCOUNT)
-    auto_staking(client)
+    auto_lending(client)
+    # auto_staking(client)
 
 
 if __name__ == '__main__':

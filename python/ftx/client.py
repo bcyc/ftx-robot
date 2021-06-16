@@ -70,9 +70,21 @@ class FtxClient:
             return None
         return balance_coin[0]
 
+    def get_margin_lending_rate(self) -> List[dict]:
+        return self._get('spot_margin/lending_rates')
+
+    def get_margin_lending_rate_coin(self, coin: str) -> dict:
+        lending_rate_coin = [lending_rate for lending_rate in self.get_margin_lending_rate()
+                        if lending_rate['coin'] == coin]
+        if lending_rate_coin == []:
+            return None
+        return lending_rate_coin[0]
+
     def stakes(self, coin: str, size: float) -> dict:
         return self._post(f'srm_stakes/stakes', {'coin': coin, 'size': size})
 
     def get_stake_balances(self) -> dict:
         return self._get(f'staking/balances')
 
+    def lends(self, coin: str, size: float, rate: float) -> dict:
+        return self._post(f'spot_margin/offers', {'coin': coin, 'size': size, 'rate': rate})
