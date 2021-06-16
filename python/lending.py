@@ -19,5 +19,5 @@ def lend_coin(client: FtxClient, coin: str) -> None:
     print(lend_rate)
 
     if available_balance > 0:
-        print('Lending coin: {}'.format(coin))
+        print('Lending coin: {}, size: {}, rate: {}'.format(coin, available_balance, lend_rate['estimate']))
         print(client.lends(coin=coin, size=available_balance, rate=lend_rate['estimate']))
