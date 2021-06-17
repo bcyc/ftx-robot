@@ -19,7 +19,7 @@ def lend_coin(client: FtxClient, coin: str) -> None:
     available_balance = float(format(balance_coin['lendable'], '.6f')) - 0.000001
     lend_rate = client.get_margin_lending_rate_coin(coin)
     print('[lend_coin] DEBUG: {}'.format(lend_rate))
-    lend_rate['estimate'] -= 0.000001
+    lend_rate['estimate'] -= 0.00000001
     if available_balance > 0:
         print('Lending coin: {}, size: {}, rate: {}'.format(coin, available_balance, lend_rate['estimate']))
         try:
