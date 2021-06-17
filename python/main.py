@@ -10,7 +10,7 @@ def main() -> None:
                        api_secret=SECRET,
                        subaccount_name=SUBACCOUNT)
     auto_lending(client)
-    schedule.every().hour.at(":58").do(auto_lending, client)
+    schedule.every().hour.at(":59").do(auto_lending, client)
     while True:
         schedule.run_pending()
         time.sleep(1)
