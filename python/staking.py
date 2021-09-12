@@ -15,6 +15,7 @@ def stake_coin(client: FtxClient, coin: str) -> None:
     print('[stake_coin] DEBUG: balance = {}'.format(balance_coin))
     if available_balance > 0:
         try:
+            print('[stake_coin] DEBUG: coin = {}, size = {}'.format(coin, available_balance))
             client.stakes(coin=coin, size=available_balance)
         except:
             print(format_exc())
