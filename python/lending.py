@@ -2,7 +2,7 @@ from ftx.client import FtxClient
 import datetime
 from traceback import format_exc
 
-LEND_COINS = ['ETH', 'USD']
+LEND_COINS = ['ETH', 'USD', 'BTC']
 
 def auto_lending(client: FtxClient) -> None:
     print('[auto_lending] DEBUG: {}'.format(datetime.datetime.now()))
@@ -23,6 +23,6 @@ def lend_coin(client: FtxClient, coin: str) -> None:
     if available_balance > 0:
         print('Lending coin: {}, size: {}, rate: {}'.format(coin, available_balance, lend_rate['estimate']))
         try:
-            print(client.lends(coin=coin, size=available_balance, rate=lend_rate['estimate']))
+            client.lends(coin=coin, size=available_balance, rate=lend_rate['estimate'])
         except:
             print(format_exc())
