@@ -1,9 +1,11 @@
 from ftx.client import FtxClient
 from traceback import format_exc
+import datetime
 
 STAKE_COINS = ['SOL']
 
 def auto_staking(client: FtxClient) -> None:
+    print('[auto_staking] DEBUG: {}'.format(datetime.datetime.now()))
     for coin in STAKE_COINS:
         stake_coin(client, coin)
 
