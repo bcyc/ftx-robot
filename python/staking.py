@@ -1,4 +1,5 @@
 from ftx.client import FtxClient
+from traceback import format_exc
 
 STAKE_COINS = ['SOL']
 
@@ -13,4 +14,7 @@ def stake_coin(client: FtxClient, coin: str) -> None:
     available_balance = balance_coin['free'] - 0.00000001
     print('[stake_coin] DEBUG: balance = {}'.format(balance_coin))
     if available_balance > 0:
-        client.stakes(coin=coin, size=available_balance)
+        try:
+            client.stakes(coin=coin, size=available_balance)
+        except:
+            print(format_exc())
