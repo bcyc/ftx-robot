@@ -14,7 +14,6 @@ def stake_coin(client: FtxClient, coin: str) -> None:
     if balance_coin is None:
         return
     available_balance = balance_coin['free']
-    print('[stake_coin] DEBUG:')
-    print(balance_coin)
+    print('[stake_coin] DEBUG: balance = {}'.format(balance_coin))
     if available_balance > 0:
         client.stakes(coin=coin, size=available_balance)
