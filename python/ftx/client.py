@@ -66,6 +66,9 @@ class FtxClient:
     def list_markets(self) -> List[dict]:
         return self._get('markets')
 
+    def get_single_market(self, market: str) -> dict:
+        return self._get(f'markets/{market}')
+
     def get_orderbook(self, market: str, depth: int = None) -> dict:
         return self._get(f'markets/{market}/orderbook', {'depth': depth})
 
@@ -160,6 +163,9 @@ class FtxClient:
 
     def get_position(self, name: str, show_avg_price: bool = False) -> dict:
         return next(filter(lambda x: x['future'] == name, self.get_positions(show_avg_price)), None)
+
+    def get_position_info(self, name: str, positions: dict) -> dict:
+        return next(filter(lambda x: x['future'] == name, positions), None)
 
     # def get_all_trades(self, market: str, start_time: float = None, end_time: float = None) -> List:
     #     ids = set()
